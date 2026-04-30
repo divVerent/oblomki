@@ -1,0 +1,3 @@
+[submodule "examples/freefont"]
+	path = examples/freefont
+	url = https://github.com/Maxattax97/gnu-freefont

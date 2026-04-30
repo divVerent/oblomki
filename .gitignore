@@ -1,0 +1,7 @@
+*.pyc
+/test/*.dwdiff
+/test/*.post
+/test/*.pre
+/test/*.ttf
+/test/*.txt
+/words/
