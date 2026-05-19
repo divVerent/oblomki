@@ -42,4 +42,4 @@ It literally operates on *fragments*. Also:
 
 ## License
 
-This software, like FontForge, is under the [GPL-3](COPYING.md).
+This software, like FontForge, is under the [GPL-3](COPYING).
