@@ -123,11 +123,6 @@ def process_font(config, infile, outfile):
         config["preprocess"](font)
 
     replacements = replacements_to_glyphs(font, config["replacements"])
-    if replacements is None:
-        print(f"Skipping {font.fontname}: could not produce a single replacement.")
-        font.close()
-        return
-
     all_glyphs = set(
         (
             glyph
@@ -144,10 +139,11 @@ def process_font(config, infile, outfile):
     ]
     print(f"Scripts matched: {scripts}")
 
-    calt = make_name("calt")
-    font.addLookup(calt, "gsub_contextchain", (), [("calt", scripts)])
     liga_seen = set()
     combined_count = 0
+    calt = make_name("calt")
+    if replacements:
+        font.addLookup(calt, "gsub_contextchain", (), [("calt", scripts)])
     for backwards, match, forward, target in replacements:
         liga = make_name("liga", match, target)
         if liga not in liga_seen:
