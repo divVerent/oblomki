@@ -1,0 +1,29 @@
+name: Run Automated Tests
+
+on:
+  pull_request:
+    branches: [ "master" ]
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: 57 13 * * *
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        submodules: true
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        packages=$(grep '^\$ sudo apt-get install ' README.md | cut -d ' ' -f 5-)
+        sudo apt-get install $packages
+    - name: Download Test Data
+      run: make -C test download
+    - name: Build Font
+      run: make -C test build
+    - name: Run Tests
+      run: make -C test
