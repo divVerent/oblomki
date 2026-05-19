@@ -35,7 +35,7 @@ post.ttf: pre.ttf
 	cd ../examples && ../oblomki.py config.py ../test/$< ../test/$@
 
 corpus.f.borussia.txt:
-	echo ' BoRussia Dortmund ' > $@
+	echo ' BORUSSIA DORTMUND ' > $@
 
 corpus.f.john.txt:
 	set -e; for i in $$(seq 1 21); do w3m -dump https://biblera.com/uk/ukrainian/john/$$i; done > $@
@@ -50,7 +50,7 @@ corpus.t.riaru.txt:
 	w3m -dump https://ria.ru/ > $@
 
 corpus.t.terror.txt:
-	echo ' Russia is a terrorist state. ' > $@
+	echo ' RUSSIA IS A TERRORIST STATE ' > $@
 
 corpus.%.pre: corpus.%.txt pre.ttf
 	hb-shape --show-text --no-positions --no-advances --no-clusters pre.ttf < $< > $@

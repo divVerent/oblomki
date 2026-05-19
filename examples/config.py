@@ -116,19 +116,25 @@ replacements = [
     )
     for trigger in OBLOMKI
 ] + [
-    ([separators], "Рос", "", [with_flies("рос"), "рос"]),
+    ([], "Рос", "", [with_flies("рос"), "рос"]),
     ([separators], "РОС", "", [with_flies("рос"), "рос"]),
-    ([separators], "Rus", "s", [with_flies("rus"), "rus"]),
+    ([], "Rus", "s", [with_flies("rus"), "rus"]),
     ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
     # While at it, also fix some common typos.
-    # TODO split so upper case first needs no separators
-    ([separators], [set("Кк")] + list("иев"), [separators], ["Київ"]),
-    ([separators], [set("Кк")] + list("иева"), [separators], ["Києва"]),
-    ([separators], [set("Кк")] + list("иеву"), [separators], ["Києву"]),
-    ([separators], [set("Кк")] + list("иевом"), [separators], ["Києвом"]),
-    ([separators], [set("Кк")] + list("иеве"), [separators], ["Києву"]),
-    ([separators], [set("Kk")] + list("iev"), [], ["Kyiv"]),
-    ([separators], [set("Kk")] + list("iew"), [], ["Kyjiw"]),
+    ([], "Киев", [separators], ["Київ"]),
+    ([separators], "киев", [separators], ["Київ"]),
+    ([], "Киева", [separators], ["Києва"]),
+    ([separators], "киева", [separators], ["Києва"]),
+    ([], "Киеву", [separators], ["Києву"]),
+    ([separators], "киеву", [separators], ["Києву"]),
+    ([], "Киевом", [separators], ["Києвом"]),
+    ([separators], "киевом", [separators], ["Києвом"]),
+    ([], "Киеве", [separators], ["Києву"]),
+    ([separators], "киеве", [separators], ["Києву"]),
+    ([], "Kiev", [], ["Kyiv"]),
+    ([separators], "kiev", [], ["Kyiv"]),
+    ([], "Kiew", [], ["Kyjiw"]),
+    ([separators], "kiew", [], ["Kyjiw"]),
 ]
 
 
