@@ -42,10 +42,8 @@ loaded page - which is especially fun on satire sites like
 
 It literally operates on *fragments*. Also:
 
-[![&Fcy;&rcy;&iukcy;&ocy;&ncy;&iukcy;&scy; - DEBRIS&#128293;
-(animation)](http://img.youtube.com/vi/cu7ot1dnvdw/0.jpg)](http://www.youtube.com/watch?v=cu7ot1dnvdw "Фріоніс - DEBRIS🔥 (animation)")
-[![Freeonis \[ENG SUB\] - DEBRIS&#128293;
-(animation)](http://img.youtube.com/vi/dHzGNrHld_s/0.jpg)](http://www.youtube.com/watch?v=dHzGNrHld_s "Freeonis [ENG SUB] - DEBRIS🔥 (animation)")
+<a href="http://www.youtube.com/watch?v=cu7ot1dnvdw"><img src="https://img.youtube.com/vi/cu7ot1dnvdw/0.jpg" width="75%" height="75%" alt="Фріоніс - DEBRIS🔥 (animation)" title="Фріоніс - DEBRIS🔥 (animation)"></a>
+<a href="http://www.youtube.com/watch?v=dHzGNrHld_s"><img src="https://img.youtube.com/vi/dHzGNrHld_s/0.jpg" width="75%" height="75%" alt="Freeonis [ENG SUB] - DEBRIS🔥 (animation)" title="Freeonis [ENG SUB] - DEBRIS🔥 (animation)"></a>
 
 ## License
 
