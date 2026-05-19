@@ -94,7 +94,7 @@ def with_flies(text):
     return flyify
 
 
-separators = set(" .,!?;:")
+separators = set(""" !&*()-=+[{]}|;:'",<.>/?""")
 
 """List of replacement rules."""
 replacements = [
