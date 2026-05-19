@@ -16,18 +16,24 @@
 # along with this program.  If not, see <https://www.gnu.org/licenss/>.
 
 set -ex
+
 git submodule update --init
 
-rm -rf otf ttf woff
-mkdir -p otf ttf woff
+out=$(mktemp -d -t oblomki.XXXXXX)
+
+cat freefont/COPYING > "$out"/COPYING
+{
+	echo "This directory contains GNU FreeFont, edited using обломки."
+	echo
+	cat freefont/CREDITS
+} > "$out"/CREDITS
+
 for dir in otf ttf woff; do
-	cat freefont/COPYING > "$dir"/COPYING
-	{
-		echo "This directory contains GNU FreeFont, edited using обломки."
-		echo
-		cat freefont/CREDITS
-	} > "$dir"/CREDITS
+	mkdir "$out"/"$dir"
 done
+
 for font in freefont/otf/*.otf freefont/ttf/*.ttf freefont/woff/*.woff; do
-	python3 ../oblomki.py config.py "$font" "${font#freefont/}"
+	python3 ../oblomki.py config.py "$font" "$out"/"${font#freefont/}"
 done
+
+echo "Processed fonts are in $out."
