@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-CORPORA = f.borussia f.john t.john t.kremlinru t.riaru t.terror
+CORPORA = f.borussia f.john t.john t.kremlinru t.riaru t.terror t.terror-nospace
 
 CORPORA_TXT = $(patsubst %,corpus.%.txt,$(CORPORA))
 CORPORA_PRE = $(patsubst %,corpus.%.pre,$(CORPORA))
@@ -51,6 +51,9 @@ corpus.t.riaru.txt:
 
 corpus.t.terror.txt:
 	echo ' RUSSIA IS A TERRORIST STATE ' > $@
+
+corpus.t.terror-nospace.txt:
+	echo 'Russia is a terrorist state' > $@
 
 corpus.%.pre: corpus.%.txt pre.ttf
 	hb-shape --show-text --no-positions --no-advances --no-clusters pre.ttf < $< > $@
