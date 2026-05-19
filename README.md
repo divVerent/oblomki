@@ -35,8 +35,8 @@ To install a bookmarklet, you copy the above text to the clipboard, add
 a new bookmark, and paste it into the bookmark URL. After pasting, check
 that it still starts with `javascript:`, and if not, add it back by
 hand. Clicking the bookmark then will apply the font to the currently
-loaded page - which is especially fun on satire sites like kremlin.ru or
-ria.ru.
+loaded page - which is especially fun on satire sites like
+<http://kremlin.ru> or <https://ria.ru>.
 
 ## Why the name?
 
