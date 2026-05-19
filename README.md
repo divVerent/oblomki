@@ -35,8 +35,17 @@ To install a bookmarklet, you copy the above text to the clipboard, add
 a new bookmark, and paste it into the bookmark URL. After pasting, check
 that it still starts with `javascript:`, and if not, add it back by
 hand. Clicking the bookmark then will apply the font to the currently
-loaded page - which is especially fun on satire sites like
-<http://kremlin.ru> or <https://ria.ru>.
+loaded page - which is especially fun on satire sites like the ones
+shown below.
+
+## Gallery
+
+[![Flibusta](https://divverent.github.io/oblomki/screenshots/flibusta.t.png)](https://divverent.github.io/oblomki/screenshots/flibusta.png)
+[![The
+Kremlin](https://divverent.github.io/oblomki/screenshots/kremlin.t.png)](https://divverent.github.io/oblomki/screenshots/kremlin.png)
+[![RIA
+Novosti](https://divverent.github.io/oblomki/screenshots/ria.t.png)](https://divverent.github.io/oblomki/screenshots/ria.png)
+[![RT](https://divverent.github.io/oblomki/screenshots/rt.t.png)](https://divverent.github.io/oblomki/screenshots/rt.png)
 
 ## Why the name?
 
