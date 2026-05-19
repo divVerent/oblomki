@@ -120,6 +120,14 @@ replacements = [
     ([separators], "РОС", "", [with_flies("рос"), "рос"]),
     ([separators], "Rus", "s", [with_flies("rus"), "rus"]),
     ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
+    # While at it, also fix some common typos.
+    ([separators], [set("Кк")] + list("и́ев"), [separators], ["Ки́їв"]),
+    ([separators], [set("Кк")] + list("и́ева"), [separators], ["Ки́єва"]),
+    ([separators], [set("Кк")] + list("и́еву"), [separators], ["Ки́єву"]),
+    ([separators], [set("Кк")] + list("и́евом"), [separators], ["Ки́євом"]),
+    ([separators], [set("Кк")] + list("и́еве"), [separators], ["Ки́єву"]),
+    ([separators], [set("Kk")] + list("iev"), [], ["Kyiv"]),
+    ([separators], [set("Kk")] + list("iew"), [], ["Kyjiw"]),
 ]
 
 

@@ -26,7 +26,7 @@ pre.ttf:
 	curl -L 'https://ftp.gnu.org/gnu/freefont/freefont-otf-20120503.tar.gz' | tar xvzOf - freefont-20120503/FreeSans.otf > $@
 
 post.ttf: pre.ttf
-	cd ../examples && ./oblomki.py ../config.py ../test/$< ../test/$@
+	cd ../examples && ../oblomki.py config.py ../test/$< ../test/$@
 
 corpus.f.borussia.txt:
 	echo ' BoRussia Dortmund ' > $@
