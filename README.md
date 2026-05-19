@@ -28,7 +28,7 @@ The "GNU FreeFont" fonts processed by this tool are available in
 [examples/](examples/). You can apply them to a browser tab by
 installing and running the following bookmarklet:
 
-    javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://raw.githubusercontent.com/divVerent/oblomki/refs/heads/master/examples/style.css'; document.head.appendChild(e); e = document.createElement('style'); document.head.appendChild(e); e.sheet.insertRule('* { font-family: "FreeSerif with Oblomki" ! important; } h1, h2, h3, h4, h5, h6 { font-family: "FreeSans with Oblomki" ! important; } pre, textarea { font-family: "FreeMono with Oblomki" ! important; }'); }
+    javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/style.css'; document.head.appendChild(e); e = document.createElement('style'); document.head.appendChild(e); e.sheet.insertRule('* { font-family: "FreeSerif with Oblomki" ! important; } h1, h2, h3, h4, h5, h6 { font-family: "FreeSans with Oblomki" ! important; } pre, textarea { font-family: "FreeMono with Oblomki" ! important; }'); }
 
 ## License
 
