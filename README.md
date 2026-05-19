@@ -40,12 +40,10 @@ shown below.
 
 ## Gallery
 
-[![Flibusta](https://divverent.github.io/oblomki/screenshots/flibusta.t.png)](https://divverent.github.io/oblomki/screenshots/flibusta.png)
-[![The
-Kremlin](https://divverent.github.io/oblomki/screenshots/kremlin.t.png)](https://divverent.github.io/oblomki/screenshots/kremlin.png)
-[![RIA
-Novosti](https://divverent.github.io/oblomki/screenshots/ria.t.png)](https://divverent.github.io/oblomki/screenshots/ria.png)
-[![RT](https://divverent.github.io/oblomki/screenshots/rt.t.png)](https://divverent.github.io/oblomki/screenshots/rt.png)
+<a href="https://divverent.github.io/oblomki/screenshots/flibusta.png"><img src="https://divverent.github.io/oblomki/screenshots/flibusta.t.png" alt="flibusta" title="flibusta"></a>
+<a href="https://divverent.github.io/oblomki/screenshots/kremlin.png"><img src="https://divverent.github.io/oblomki/screenshots/kremlin.t.png" alt="kremlin" title="kremlin"></a>
+<a href="https://divverent.github.io/oblomki/screenshots/ria.png"><img src="https://divverent.github.io/oblomki/screenshots/ria.t.png" alt="ria novosti" title="ria novosti"></a>
+<a href="https://divverent.github.io/oblomki/screenshots/rt.png"><img src="https://divverent.github.io/oblomki/screenshots/rt.t.png" alt="russia today" title="russia today"></a>
 
 ## Why the name?
 
