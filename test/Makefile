@@ -29,7 +29,7 @@ CORPORA_TEST = $(patsubst %,corpus.%.test,$(CORPORA))
 all: test
 
 pre.ttf:
-	curl -L 'https://ftp.gnu.org/gnu/freefont/freefont-otf-20120503.tar.gz' | tar xvzOf - freefont-20120503/FreeSans.otf > $@
+	ln -snf ../examples/freefont/ttf/FreeSans.ttf pre.ttf
 
 post.ttf: pre.ttf
 	cd ../examples && ../oblomki.py config.py ../test/$< ../test/$@

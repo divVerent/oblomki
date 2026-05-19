@@ -50,7 +50,8 @@ It literally operates on *fragments*. Also:
 To run automated tests, run:
 
 ``` sh
-$ sudo apt-get install curl dwdiff grep libharfbuzz-bin tar w3m
+$ sudo apt-get install dwdiff grep libharfbuzz-bin tar w3m
+$ git submodule update --init
 $ make -C test
 ```
 
