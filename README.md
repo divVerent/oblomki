@@ -45,6 +45,15 @@ It literally operates on *fragments*. Also:
 <a href="http://www.youtube.com/watch?v=cu7ot1dnvdw"><img src="https://img.youtube.com/vi/cu7ot1dnvdw/0.jpg" width="45%" height="45%" alt="Фріоніс - DEBRIS🔥 (animation)" title="Фріоніс - DEBRIS🔥 (animation)"></a>
 <a href="http://www.youtube.com/watch?v=dHzGNrHld_s"><img src="https://img.youtube.com/vi/dHzGNrHld_s/0.jpg" width="45%" height="45%" alt="Freeonis [ENG SUB] - DEBRIS🔥 (animation)" title="Freeonis [ENG SUB] - DEBRIS🔥 (animation)"></a>
 
+## Automated Tests
+
+To run automated tests, run:
+
+``` sh
+$ sudo apt-get install curl dwdiff grep libharfbuzz-bin tar w3m
+$ make -C test
+```
+
 ## License
 
 This software, like FontForge, is under the [GPL-3](COPYING).
