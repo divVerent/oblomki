@@ -1,5 +1,6 @@
 *.pyc
 /examples/extension.zip
+/examples/extension/style.css
 /test/*.dwdiff
 /test/*.post
 /test/*.pre
