@@ -17,6 +17,12 @@
 
 CORPORA = f.borussia f.john t.john t.kremlinru t.riaru t.terror
 
+CORPORA_TXT = $(patsubst %,corpus.%.txt,$(CORPORA))
+CORPORA_PRE = $(patsubst %,corpus.%.pre,$(CORPORA))
+CORPORA_POST = $(patsubst %,corpus.%.post,$(CORPORA))
+CORPORA_DWDIFF = $(patsubst %,corpus.%.dwdiff,$(CORPORA))
+CORPORA_TEST = $(patsubst %,corpus.%.test,$(CORPORA))
+
 # Never auto delete files.
 .SECONDARY:
 
@@ -63,10 +69,14 @@ corpus.f.%.test: corpus.f.%.dwdiff
 	grep -o ':oblomki:[^:]*:[^:]*:' $< | sort | uniq -c | { ! grep .; }  # Expecting no matches.
 	@echo OK
 
-test: $(patsubst %,corpus.%.test,$(CORPORA))
+download: pre.ttf $(CORPORA_TXT)
+
+build: post.ttf
+
+test: $(CORPORA_TEST)
 
 clean:
-	$(RM) post.ttf corpus.*.pre corpus.*.post corpus.*.dwdiff corpus.*.test
+	$(RM) post.ttf $(CORPORA_PRE) $(CORPORA_POST) $(CORPORA_DWDIFF) $(CORPORA_TEST)
 
 fullclean: clean
-	$(RM) pre.ttf corpus.*.txt
+	$(RM) pre.ttf $(CORPORA_TXT)
