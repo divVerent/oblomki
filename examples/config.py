@@ -121,6 +121,7 @@ replacements = [
     ([separators], "Rus", "s", [with_flies("rus"), "rus"]),
     ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
     # While at it, also fix some common typos.
+    # TODO split so upper case first needs no separators
     ([separators], [set("Кк")] + list("иев"), [separators], ["Київ"]),
     ([separators], [set("Кк")] + list("иева"), [separators], ["Києва"]),
     ([separators], [set("Кк")] + list("иеву"), [separators], ["Києву"]),
