@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "обломки",
+  "version": "0.0.1",
+  "description": "Better web fonts!",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "data/examples/style.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/examples/woff/*.woff"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

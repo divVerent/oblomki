@@ -1,4 +1,5 @@
 *.pyc
+/examples/extension.zip
 /test/*.dwdiff
 /test/*.post
 /test/*.pre
