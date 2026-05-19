@@ -9,7 +9,7 @@
         "<all_urls>"
       ],
       "css": [
-        "data/examples/style.css"
+        "style.css"
       ],
       "run_at": "document_start"
     }

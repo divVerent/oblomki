@@ -18,10 +18,12 @@
 set -ex
 
 cd extension
+sed -e '
+	s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/\1") format("woff"), url("data/examples/\1") format("woff");!
+' < data/examples/style.css > style.css
 zip -9r ../extension.zip \
 	manifest.json \
+	style.css \
 	data/examples/COPYING \
 	data/examples/CREDITS \
-	data/examples/font.css \
-	data/examples/style.css \
 	data/examples/woff/*.woff
