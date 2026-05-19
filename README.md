@@ -35,10 +35,10 @@ following bookmarklet:
 
 It literally operates on *fragments*. Also:
 
-- [![&Fcy;&rcy;&iukcy;&ocy;&ncy;&iukcy;&scy; - DEBRIS&#128293;
-  (animation)](http://img.youtube.com/vi/cu7ot1dnvdw/0.jpg)](http://www.youtube.com/watch?v=cu7ot1dnvdw "Фріоніс - DEBRIS🔥 (animation)")
-- [![Freeonis \[ENG SUB\] - DEBRIS&#128293;
-  (animation)](http://img.youtube.com/vi/dHzGNrHld_s/0.jpg)](http://www.youtube.com/watch?v=dHzGNrHld_s "Freeonis [ENG SUB] - DEBRIS🔥 (animation)")
+[![&Fcy;&rcy;&iukcy;&ocy;&ncy;&iukcy;&scy; - DEBRIS&#128293;
+(animation)](http://img.youtube.com/vi/cu7ot1dnvdw/0.jpg)](http://www.youtube.com/watch?v=cu7ot1dnvdw "Фріоніс - DEBRIS🔥 (animation)")
+[![Freeonis \[ENG SUB\] - DEBRIS&#128293;
+(animation)](http://img.youtube.com/vi/dHzGNrHld_s/0.jpg)](http://www.youtube.com/watch?v=dHzGNrHld_s "Freeonis [ENG SUB] - DEBRIS🔥 (animation)")
 
 ## License
 
