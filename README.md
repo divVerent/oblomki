@@ -31,6 +31,13 @@ following bookmarklet:
 
     javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/style.css'; document.head.appendChild(e); }
 
+To install a bookmarklet, you copy the above text to the clipboard, add
+a new bookmark, and paste it into the bookmark URL. After pasting, check
+that it still starts with `javascript:`, and if not, add it back by
+hand. Clicking the bookmark then will apply the font to the currently
+loaded page - which is especially fun on satire sites like kremlin.ru or
+ria.ru.
+
 ## Why the name?
 
 It literally operates on *fragments*. Also:
