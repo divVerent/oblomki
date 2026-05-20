@@ -34,11 +34,13 @@
     }
   ],
   "browser_specific_settings": {
-    "id": "{beb694d4-21ef-411a-8fbf-c191923c8145}",
-    "data_collection_permissions": {
-      "required": [
-        "none"
-      ]
+    "gecko": {
+      "id": "{beb694d4-21ef-411a-8fbf-c191923c8145}",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
     }
   }
 }
