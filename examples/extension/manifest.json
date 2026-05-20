@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "обломки",
-  "description": "Wreck russian text on websites!",
+  "description": "Wreck russian text on websites! This extension replaces the font on websites by a modified GNU FreeFont that breaks russian.",
   "icons": {
     "16": "icon-16.png",
     "48": "icon-48.png",
