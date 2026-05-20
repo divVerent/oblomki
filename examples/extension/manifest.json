@@ -1,11 +1,30 @@
 {
   "manifest_version": 3,
   "name": "обломки",
+  "description": "Wreck russian text on websites!",
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "96": "icon-96.png",
+    "128": "icon-128.png"
+  },
   "version": "0.0.1",
-  "description": "Better web fonts!",
+  "incognito": "spanning",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/examples/woff/*.woff"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "use_dynamic_url": true
+    }
+  ],
   "content_scripts": [
     {
       "matches": [
+        "*://*.ru/*",
         "<all_urls>"
       ],
       "css": [
@@ -14,15 +33,12 @@
       "run_at": "document_start"
     }
   ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "data/examples/woff/*.woff"
-      ],
-      "matches": [
-        "<all_urls>"
+  "browser_specific_settings": {
+    "id": "{beb694d4-21ef-411a-8fbf-c191923c8145}",
+    "data_collection_permissions": {
+      "required": [
+        "none"
       ]
     }
-  ],
-  "incognito": "split"
+  }
 }

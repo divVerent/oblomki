@@ -23,7 +23,11 @@ sed -e '
 ' < data/examples/style.css > style.css
 zip -9r ../extension.zip \
 	manifest.json \
+	icon-16.png \
+	icon-48.png \
+	icon-96.png \
+	icon-128.png \
 	style.css \
+	data/examples/woff/*.woff \
 	data/examples/COPYING \
-	data/examples/CREDITS \
-	data/examples/woff/*.woff
+	data/examples/CREDITS
