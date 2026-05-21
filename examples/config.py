@@ -22,6 +22,8 @@ Defines how fonts are to be processed.
 This example matches text of russian language and messes with it a little.
 """
 
+import itertools
+
 from oblomki_found import OBLOMKI
 
 
@@ -96,46 +98,69 @@ def with_flies(text):
 
 separators = set(""" !&*()-=+[{]}|;:'",<.>/?""")
 
+
+def prefix(ipref, opref, suffix=[]):
+    result = []
+    ipref_lower = ipref[0].lower() + ipref[1:]
+    if ipref == ipref_lower:
+        result.append(([separators], ipref, suffix, [opref]))
+    else:
+        result.append(([separators], ipref_lower, suffix, [opref]))
+        result.append(([], ipref, suffix, [opref]))
+    return result
+
+
+def declined(inom, onom, istem=None, ostem=None, stem_suffix=[set("ауоеы")]):
+    if istem is None:
+        istem = inom
+    if ostem is None:
+        ostem = onom
+    result = []
+    if inom != istem or onom != ostem:
+        result.extend(prefix(inom, onom, [separators]))
+    # Need stem_suffix to not match before the other rule.
+    # TODO: divVerent - can we get a fixed order so stem_suffix is not needed?
+    result.extend(prefix(istem, ostem, stem_suffix))
+    return result
+
+
 """List of replacement rules."""
-replacements = [
-    (
-        [separators] if trigger[0] == " " else [],
-        trigger.strip(" "),
-        [separators] if trigger[-1] == " " else [],
+replacements = list(
+    itertools.chain(
         [
-            (lambda font: [["oblomki_tryzub"]]),
-            "🔱",
-            "♆",
-            "ψ",
-            "Ψ",
-            "Ѱ",
-            "У",
-            "⫝",
-            "(|)",
+            (
+                [separators] if trigger[0] == " " else [],
+                trigger.strip(" "),
+                [separators] if trigger[-1] == " " else [],
+                [
+                    (lambda font: [["oblomki_tryzub"]]),
+                    "🔱",
+                    "♆",
+                    "ψ",
+                    "Ψ",
+                    "Ѱ",
+                    "У",
+                    "⫝",
+                    "(|)",
+                ],
+            )
+            for trigger in OBLOMKI
         ],
+        [
+            ([], "Рос", "", [with_flies("рос"), "рос"]),
+            ([separators], "РОС", "", [with_flies("рос"), "рос"]),
+            ([], "Rus", "s", [with_flies("rus"), "rus"]),
+            ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
+        ],
+        # While at it, also fix some common typos.
+        declined("Киев", "Київ", ostem="Києв"),
+        prefix("Kiev", "Kyiv"),
+        prefix("Kiew", "Kyjiw"),
+        declined("Харьков", "Харків", ostem="Харков"),
+        prefix("Kharkov", "Kharkiv"),
+        prefix("Charkov", "Charkiv"),
     )
-    for trigger in OBLOMKI
-] + [
-    ([], "Рос", "", [with_flies("рос"), "рос"]),
-    ([separators], "РОС", "", [with_flies("рос"), "рос"]),
-    ([], "Rus", "s", [with_flies("rus"), "rus"]),
-    ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
-    # While at it, also fix some common typos.
-    ([], "Киев", [separators], ["Київ"]),
-    ([separators], "киев", [separators], ["Київ"]),
-    ([], "Киева", [separators], ["Києва"]),
-    ([separators], "киева", [separators], ["Києва"]),
-    ([], "Киеву", [separators], ["Києву"]),
-    ([separators], "киеву", [separators], ["Києву"]),
-    ([], "Киевом", [separators], ["Києвом"]),
-    ([separators], "киевом", [separators], ["Києвом"]),
-    ([], "Киеве", [separators], ["Києву"]),
-    ([separators], "киеве", [separators], ["Києву"]),
-    ([], "Kiev", [], ["Kyiv"]),
-    ([separators], "kiev", [], ["Kyiv"]),
-    ([], "Kiew", [], ["Kyjiw"]),
-    ([separators], "kiew", [], ["Kyjiw"]),
-]
+)
 
 
 def postprocess(font):
