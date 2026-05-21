@@ -62,6 +62,55 @@ def string_to_glyphs(font, string):
     return list(map(lambda glyphs: glyphs[0], out))
 
 
+def can_add_class(existing, to_add):
+    for i, s in enumerate(existing):
+        if s == to_add:
+            return True, i
+        if s & to_add:
+            return False, i
+    return True, None
+
+
+def common_element(target, index):
+    prefix = None
+    for glyphsets in target:
+        try:
+            glyphset = glyphsets[index]
+        except IndexError:
+            return None
+        if not glyphset:
+            raise Exception("empty glyphset should have been rejected earlier")
+        if prefix is None:
+            prefix = glyphset
+            continue
+        if glyphset != prefix:
+            return None
+    return prefix
+
+
+def simplify_replacement(backwards, match, forward, target):
+    while True:
+        prefix = common_element([match, [set([glyph]) for glyph in target]], 0)
+        if prefix is None:
+            break
+        if not can_add_class(backwards, prefix):
+            break
+        backwards.append(prefix)
+        match = match[1:]
+        target = target[1:]
+    while True:
+        suffix = common_element([match, [set([glyph]) for glyph in target]], -1)
+        if suffix is None:
+            break
+        can_add, _ = can_add_class(forward, suffix)
+        if not can_add:
+            break
+        forward.insert(0, suffix)
+        match = match[:-1]
+        target = target[:-1]
+    return backwards, match, forward, target
+
+
 def replacement_to_glyphs(font, replacement):
     backwards, match, forward, targets = replacement
     backwards = string_to_glyphset(font, backwards)
@@ -74,6 +123,9 @@ def replacement_to_glyphs(font, replacement):
     target = next(targets, None)
     if backwards is None or match is None or forward is None or not target:
         return None
+    backwards, match, forward, target = simplify_replacement(
+        backwards, match, forward, target
+    )
     return backwards, match, forward, target
 
 
@@ -101,18 +153,17 @@ def to_classes(groups):
         if not group:
             raise Exception("empty class detected")
         group_cls = set(group)
-        for i, cls in enumerate(classes):
-            if cls == group_cls:
-                indexes.append(i)
-                break
-            if cls & group_cls:
-                raise Exception(
-                    "partially overlapping classes detected: {cls} and {group_cls}"
-                )
-        else:
-            i = len(classes)
-            indexes.append(i)
+        can_add, index = can_add_class(classes, group_cls)
+        if not can_add:
+            raise Exception(
+                f"partially overlapping classes detected: {classes[index]} and {group_cls}"
+            )
+        if index is None:
+            index = len(classes)
+            indexes.append(index)
             classes.append(group_cls)
+        else:
+            indexes.append(index)
     return list(map(sorted, classes)), list(map(str, indexes))
 
 
@@ -140,12 +191,12 @@ def process_font(config, infile, outfile):
     print(f"Scripts matched: {scripts}")
 
     liga_seen = set()
-    combined_count = 0
     calt = make_name("calt")
     if replacements:
         font.addLookup(calt, "gsub_contextchain", (), [("calt", scripts)])
     for backwards, match, forward, target in replacements:
         liga = make_name("liga", match, target)
+        combined = make_name("glyph", target)
         if liga not in liga_seen:
             liga_seen.add(liga)
             font.addLookup(liga, "gsub_ligature", (), [])
@@ -153,9 +204,9 @@ def process_font(config, infile, outfile):
             font.addLookupSubtable(liga, liga_subtable)
             if len(target) == 1:
                 glyph = font[target[0]]
+            elif combined in font:
+                glyph = font[combined]
             else:
-                combined = make_name(combined_count)
-                combined_count += 1
                 glyph = font.createChar(-1, combined)
                 xoffset = 0
                 for srcglyph in target:
