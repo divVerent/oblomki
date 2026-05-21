@@ -36,4 +36,13 @@ for font in freefont/otf/*.otf freefont/ttf/*.ttf freefont/woff/*.woff; do
 	python3 ../oblomki.py config.py "$font" "$out"/"${font#freefont/}"
 done
 
-echo "Processed fonts are in $out/."
+cat <<EOF
+Processed fonts are in $out/.
+To upload, run:
+
+git checkout gh-pages
+rsync -vaSHPAX $out/. .
+git commit -a
+git push
+git checkout master
+EOF
