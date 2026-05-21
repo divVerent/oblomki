@@ -89,7 +89,9 @@ def common_element(target, index):
 
 
 def simplify_replacement(backwards, match, forward, target):
-    while True:
+    # Do not simplify further than 1 character. No need for an empty glyph.
+    # Also, if the match is empty, replacements cannot work either.
+    while len(target) > 1 and len(match) > 1:
         prefix = common_element([match, [set([glyph]) for glyph in target]], 0)
         if prefix is None:
             break
@@ -98,7 +100,7 @@ def simplify_replacement(backwards, match, forward, target):
         backwards.append(prefix)
         match = match[1:]
         target = target[1:]
-    while True:
+    while len(target) > 1 and len(match) > 1:
         suffix = common_element([match, [set([glyph]) for glyph in target]], -1)
         if suffix is None:
             break
