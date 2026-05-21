@@ -42,8 +42,8 @@ def import_svg(
     # Figure out the left and right side bearings from median of all characters.
     leftpads = [font[glyph].left_side_bearing for glyph in font]
     rightpads = [font[glyph].right_side_bearing for glyph in font]
-    leftpad = int(0.5 + sorted(leftpads)[int(len(leftpads) / 2)] * bearing_factor)
-    rightpad = int(0.5 + sorted(rightpads)[int(len(leftpads) / 2)] * bearing_factor)
+    leftpad = sorted(leftpads)[int(len(leftpads) / 2)]
+    rightpad = sorted(rightpads)[int(len(leftpads) / 2)]
 
     # Create the glyph.
     glyph = font.createChar(-1, glyphname)
@@ -63,11 +63,11 @@ def import_svg(
     # Transform it further.
     glyph.transform([scale_factor, 0, 0, scale_factor, 0, offset_factor * height])
     width *= scale_factor
-    width_adjust = int(0.5 + 0.5 * width * (1.0 - width_factor))
+    width_adjust = 0.5 * width * (1.0 - width_factor)
 
     # Set left and right side bearing.
-    glyph.left_side_bearing = leftpad - width_adjust
-    glyph.right_side_bearing = rightpad - width_adjust
+    glyph.left_side_bearing = round(leftpad * bearing_factor - width_adjust)
+    glyph.width = round((leftpad + rightpad) * bearing_factor + width * width_factor)
 
     # Create hints.
     glyph.removeOverlap()
@@ -78,8 +78,8 @@ def import_svg(
 def preprocess(font):
     """What to do with the font before processing, right after loading."""
     import_svg(font, "oblomki_tryzub", "data/tryzub.svg", 1.0, 0.0, 1.0, 1.0)
-    import_svg(font, "oblomki_fly1", "data/fly1.svg", 0.38, 0.61, 1.0, 0.0)
-    import_svg(font, "oblomki_fly2", "data/fly2.svg", 0.41, 0.55, 1.0, 0.0)
+    import_svg(font, "oblomki_fly1", "data/fly1.svg", 0.38, 0.61, 0.0, 0.0)
+    import_svg(font, "oblomki_fly2", "data/fly2.svg", 0.41, 0.55, 0.0, 0.0)
 
 
 def with_flies(text):
