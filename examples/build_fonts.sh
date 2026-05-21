@@ -36,4 +36,4 @@ for font in freefont/otf/*.otf freefont/ttf/*.ttf freefont/woff/*.woff; do
 	python3 ../oblomki.py config.py "$font" "$out"/"${font#freefont/}"
 done
 
-echo "Processed fonts are in $out."
+echo "Processed fonts are in $out/."
