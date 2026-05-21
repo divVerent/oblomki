@@ -62,14 +62,14 @@ corpus.%.post: corpus.%.txt post.ttf
 	hb-shape --show-text --no-positions --no-advances --no-clusters post.ttf < $< > $@
 
 corpus.%.dwdiff: corpus.%.pre corpus.%.post
-	dwdiff -P --start-delete="[-:oblomki:del:" --stop-delete=":-]" --start-insert="{+:oblomki:ins:" --stop-insert=":+}" corpus.$*.pre corpus.$*.post > $@ || true
+	dwdiff -P --start-delete="[- oblomki del " --stop-delete=" -]" --start-insert="{+ oblomki ins " --stop-insert=" +}" corpus.$*.pre corpus.$*.post > $@ || true
 
 corpus.t.%.test: corpus.t.%.dwdiff
-	grep -o ':oblomki:[^:]*:[^:]*:' $< | sort | uniq -c | grep .  # Expecting matches.
+	grep -o ' oblomki [^ ]* [^ ]* ' $< | sort | uniq -c | grep .  # Expecting matches.
 	@echo OK
 
 corpus.f.%.test: corpus.f.%.dwdiff
-	grep -o ':oblomki:[^:]*:[^:]*:' $< | sort | uniq -c | { ! grep .; }  # Expecting no matches.
+	grep -o ' oblomki [^ ]* [^ ]* ' $< | sort | uniq -c | { ! grep .; }  # Expecting no matches.
 	@echo OK
 
 download: pre.ttf $(CORPORA_TXT)

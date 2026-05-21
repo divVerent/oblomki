@@ -141,8 +141,49 @@ def replacements_to_glyphs(font, replacements):
 NAME_PREFIX = "oblomki"
 
 
-def make_name(*components):
-    return repr([NAME_PREFIX] + list(components))
+long_to_short_name = {}
+short_to_long_name = {}
+CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz._"
+
+
+def increment(name):
+    pos = CHARSET.find(name[-1])
+    if pos < 0:
+        return name[:-1] + CHARSET[0]
+    elif pos == len(CHARSET) - 1:
+        return increment(name[:-1]) + CHARSET[0]
+    else:
+        return name[:-1] + CHARSET[pos + 1]
+
+
+def shorten_name(name):
+    if len(name) < 31:
+        return name
+    if name in long_to_short_name:
+        return long_to_short_name[name]
+    short_name = name[:31]
+    while short_name in short_to_long_name:
+        short_name = increment(short_name)
+    short_to_long_name[short_name] = name
+    long_to_short_name[name] = short_name
+    return short_name
+
+
+def encode_name(obj):
+    # This is a subset of bencode, chosen at random for this purpose.
+    # Using _ for strings though as : is not allowed in glyph names.
+    if isinstance(obj, list) or isinstance(obj, tuple):
+        return f'l{"".join(map(encode_name, obj))}e'
+    elif isinstance(obj, set):
+        return f'l{"".join(map(encode_name, sorted(obj)))}e'
+    elif isinstance(obj, str):
+        return f"{len(obj)}_{obj}"
+    else:
+        raise Exception(f"Unsupported object type: {obj}")
+
+
+def make_name(title, *components):
+    return NAME_PREFIX + "_" + title + "_" + shorten_name(encode_name(components))
 
 
 def to_classes(groups):
