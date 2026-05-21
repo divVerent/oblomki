@@ -103,24 +103,32 @@ def prefix(ipref, opref, suffix=[]):
     result = []
     ipref_lower = ipref[0].lower() + ipref[1:]
     if ipref == ipref_lower:
-        result.append(([separators], ipref, suffix, [opref]))
+        if ipref != opref:
+            result.append(([separators], ipref, suffix, [opref]))
     else:
         result.append(([separators], ipref_lower, suffix, [opref]))
-        result.append(([], ipref, suffix, [opref]))
+        if ipref != opref:
+            result.append(([], ipref, suffix, [opref]))
     return result
 
 
-def declined(inom, onom, istem=None, ostem=None, stem_suffix=[set("ауоеы")]):
+def declined(inom, onom, istem=None, ostem=None, stem_suffix=[set("ауоеыи")]):
     if istem is None:
         istem = inom
     if ostem is None:
         ostem = onom
     result = []
-    if inom != istem or onom != ostem:
+    if inom == istem and onom == ostem and len(stem_suffix) == 0:
+        # Nominative same as stem? Let's just use one rule.
+        result.extend(prefix(istem, ostem, []))
+    elif inom == istem and onom == ostem and len(stem_suffix) == 1:
+        # Nominative same as stem? Let's just use one rule.
+        result.extend(prefix(istem, ostem, [stem_suffix[0] | separators]))
+    else:
+        # Need stem_suffix to not match before the other rule.
+        # TODO: divVerent - can we get a fixed order so stem_suffix is not needed?
         result.extend(prefix(inom, onom, [separators]))
-    # Need stem_suffix to not match before the other rule.
-    # TODO: divVerent - can we get a fixed order so stem_suffix is not needed?
-    result.extend(prefix(istem, ostem, stem_suffix))
+        result.extend(prefix(istem, ostem, stem_suffix))
     return result
 
 
@@ -153,12 +161,39 @@ replacements = list(
             ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
         ],
         # While at it, also fix some common typos.
-        declined("Киев", "Київ", ostem="Києв"),
-        prefix("Kiev", "Kyiv"),
-        prefix("Kiew", "Kyjiw"),
+        # https://en.wikipedia.org/wiki/KyivNotKiev
+        #
+        # Let's sort by English correct name, as we gotta sort by _something_.
+        #
+        declined("Донецк", "Донецьк"),
+        #
+        declined("Франковск", "Франківськ"),  # No Ivano- due to separator.
+        prefix("Frankovsk", "Frankivsk"),
+        prefix("Frankowsk", "Frankiwsk"),
+        #
         declined("Харьков", "Харків", ostem="Харков"),
         prefix("Kharkov", "Kharkiv"),
         prefix("Charkov", "Charkiv"),
+        #
+        declined("Киев", "Київ", ostem="Києв"),
+        prefix("Kiev", "Kyiv"),
+        prefix("Kiew", "Kyjiw"),
+        #
+        declined("Львов", "Львів", ostem="Львов"),
+        prefix("Lvov", "Lviv"),
+        prefix("Lwow", "Lwiw"),
+        #
+        declined("Николаев", "Миколаїв", ostem="Миколаєв"),
+        prefix("Nikolaev", "Mykolaiv"),
+        prefix("Nikolayev", "Mykolaiv"),
+        prefix("Nikolajew", "Mykolajiw"),
+        #
+        prefix("Одесс", "Одес"),
+        prefix("Odessa", "Odesa"),
+        #
+        prefix("Ровн", "Рівн"),
+        prefix("Rovno", "Rivne"),
+        prefix("Rowno", "Riwne"),
     )
 )
 

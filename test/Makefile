@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-CORPORA = f.borussia f.john t.john t.kremlinru t.riaru t.terror t.terror-nospace
+CORPORA = f.borussia f.donetskr f.john t.donetsk t.donetska t.john t.kremlinru t.odessa t.riaru t.terror t.terror-nospace
 
 CORPORA_TXT = $(patsubst %,corpus.%.txt,$(CORPORA))
 CORPORA_PRE = $(patsubst %,corpus.%.pre,$(CORPORA))
@@ -37,14 +37,26 @@ post.ttf: pre.ttf
 corpus.f.borussia.txt:
 	echo ' BORUSSIA DORTMUND ' > $@
 
+corpus.f.donetskr.txt:
+	echo ' Донецкr ' > $@  # Wrong character follows!
+
 corpus.f.john.txt:
 	set -e; for i in $$(seq 1 21); do w3m -dump https://biblera.com/uk/ukrainian/john/$$i; done > $@
+
+corpus.t.donetsk.txt:
+	echo ' Донецк ' > $@
+
+corpus.t.donetska.txt:
+	echo ' Донецка ' > $@
 
 corpus.t.kremlinru.txt:
 	w3m -dump http://kremlin.ru/ > $@
 
 corpus.t.john.txt:
 	set -e; for i in $$(seq 1 21); do w3m -dump https://biblera.com/ru/russian-synodal/john/$$i; done > $@
+
+corpus.t.odessa.txt:
+	echo ' Odessa ' > $@
 
 corpus.t.riaru.txt:
 	w3m -dump https://ria.ru/ > $@
