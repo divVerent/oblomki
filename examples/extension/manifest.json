@@ -8,7 +8,7 @@
     "96": "icon-96.png",
     "128": "icon-128.png"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "incognito": "spanning",
   "web_accessible_resources": [
     {
@@ -17,8 +17,7 @@
       ],
       "matches": [
         "<all_urls>"
-      ],
-      "use_dynamic_url": true
+      ]
     }
   ],
   "content_scripts": [
