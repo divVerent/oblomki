@@ -11,6 +11,10 @@ def preprocess(font):
 
     Arguments:
     font -- The fontforge.Font object representing the font.
+
+    Return value:
+    True -- if the font shall be considered modified and must be written back
+    None -- otherwise
     """
     pass
 
@@ -64,5 +68,9 @@ def postprocess(font):
 
     Arguments:
     font -- The fontforge.Font object representing the font.
+
+    Return value:
+    True -- if the font shall be considered modified and must be written back
+    None -- otherwise
     """
     pass

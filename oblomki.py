@@ -21,6 +21,7 @@ import sys
 import tempfile
 import itertools
 import runpy
+import shutil
 
 
 def chars_to_glyphset(font, chars):
@@ -213,8 +214,9 @@ def to_classes(groups):
 def process_font(config, infile, outfile):
     font = fontforge.open(infile)
 
+    preprocessed = None
     if "preprocess" in config:
-        config["preprocess"](font)
+        preprocessed = config["preprocess"](font)
 
     replacements = replacements_to_glyphs(font, config["replacements"])
     all_glyphs = set(
@@ -279,11 +281,19 @@ def process_font(config, infile, outfile):
             fclasses=fclasses,
         )
 
+    postprocessed = None
     if "postprocess" in config:
-        config["postprocess"](font)
+        postprocessed = config["postprocess"](font)
 
-    font.generate(outfile)
-    print(f"Successfully processed: {font.fontname}")
+    if preprocessed or replacements or postprocessed:
+        font.generate(outfile)
+        print(f"Successfully processed: {font.fontname}")
+    else:
+        if infile != outfile:
+            # Copy the file as-is, instead of having FontForge write it.
+            # That way, if anything incompatible is in it, it won't be affected.
+            shutil.copyfile(infile, outfile)
+        print(f"No changes applied to {font.fontname}")
 
     font.close()
 
