@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-CORPORA = f.borussia f.donetskr f.john t.donetsk t.donetska t.john t.kremlinru t.odessa t.riaru t.terror t.terror-nospace
+CORPORA = f.borussia f.donetskr f.john t.donetsk t.donetska t.john t.kremlinru t.odessa t.riaru t.terror t.terror-nospace t.the-ukraine t.ukraine
 
 CORPORA_TXT = $(patsubst %,corpus.%.txt,$(CORPORA))
 CORPORA_PRE = $(patsubst %,corpus.%.pre,$(CORPORA))
@@ -66,6 +66,12 @@ corpus.t.terror.txt:
 
 corpus.t.terror-nospace.txt:
 	echo 'Russia is a terrorist state' > $@
+
+corpus.t.the-ukraine:
+	echo " in the Ukraine " > $@
+
+corpus.t.ukraine:
+	echo " ukrainian children " > $@
 
 corpus.%.pre: corpus.%.txt pre.ttf
 	hb-shape --show-text --no-positions --no-advances --no-clusters pre.ttf < $< > $@

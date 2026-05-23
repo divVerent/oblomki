@@ -161,6 +161,11 @@ replacements = list(
             ([separators], "RUS", "S", [with_flies("rus"), "rus"]),
         ],
         # While at it, also fix some common typos.
+        [
+            ([separators], "the Ukraine", [separators], ["Ukraine"]),
+            ([separators], "the ukraine", [separators], ["Ukraine"]),
+            ([separators], "ukrain", [], ["Ukrain"]),
+        ],
         # https://en.wikipedia.org/wiki/KyivNotKiev
         #
         # Let's sort by English correct name, as we gotta sort by _something_.
