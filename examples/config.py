@@ -163,6 +163,8 @@ replacements = list(
         # While at it, also fix some common typos.
         prefix("Украин", "Україн"),
         [
+            ([separators], "на Украине", [separators], ["в Україне"]),
+            ([separators], "на украине", [separators], ["в Україне"]),
             ([separators], "the Ukraine", [separators], ["Ukraine"]),
             ([separators], "the ukraine", [separators], ["Ukraine"]),
         ],
