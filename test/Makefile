@@ -67,10 +67,10 @@ corpus.t.terror.txt:
 corpus.t.terror-nospace.txt:
 	echo 'Russia is a terrorist state' > $@
 
-corpus.t.the-ukraine:
+corpus.t.the-ukraine.txt:
 	echo " in the Ukraine " > $@
 
-corpus.t.ukraine:
+corpus.t.ukraine.txt:
 	echo " ukrainian children " > $@
 
 corpus.%.pre: corpus.%.txt pre.ttf
