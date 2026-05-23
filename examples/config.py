@@ -90,6 +90,8 @@ def with_flies(text):
         for i, char in enumerate(text):
             if i != 0:
                 out.append([flies[i % len(flies)]])
+            if ord(char) not in font:
+                return None
             out.append([font[ord(char)].glyphname])
         return out
 
