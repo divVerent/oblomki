@@ -165,12 +165,12 @@ replacements = list(
         [
             ([separators], "на Украине", [separators], ["в Україне"]),
             ([separators], "на украине", [separators], ["в Україне"]),
-            ([separators], "На Украине", [separators], ["В Україне"]),
-            ([separators], "На украине", [separators], ["В Україне"]),
+            ([], "На Украине", [separators], ["В Україне"]),
+            ([], "На украине", [separators], ["В Україне"]),
             ([separators], "the Ukraine", [separators], ["Ukraine"]),
             ([separators], "the ukraine", [separators], ["Ukraine"]),
-            ([separators], "The Ukraine", [separators], ["Ukraine"]),
-            ([separators], "The ukraine", [separators], ["Ukraine"]),
+            ([], "The Ukraine", [separators], ["Ukraine"]),
+            ([], "The ukraine", [separators], ["Ukraine"]),
         ],
         prefix("Ukrain", "Ukrain"),  # This rule fixes case only.
         #
