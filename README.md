@@ -26,17 +26,27 @@ $ ./oblomki.py config.py font.ttf font_processed.ttf
 
 The "GNU FreeFont" fonts processed by this tool are available in
 [examples/](https://github.com/divVerent/oblomki/tree/gh-pages/examples).
-You can apply them to a browser tab by installing and running the
-following bookmarklet:
 
-    javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/style.css'; document.head.appendChild(e); }
+You can use them to view web pages using the font using the following
+means:
 
-To install a bookmarklet, you copy the above text to the clipboard, add
-a new bookmark, and paste it into the bookmark URL. After pasting, check
-that it still starts with `javascript:`, and if not, add it back by
-hand. Clicking the bookmark then will apply the font to the currently
-loaded page - which is especially fun on satire sites like the ones
-shown below.
+- As a Chrome extension:
+  <https://chromewebstore.google.com/detail/%D0%BE%D0%B1%D0%BB%D0%BE%D0%BC%D0%BA%D0%B8/haoackkacogjhggljincofbfebmaefon>
+
+  This can be set up to either apply to all websites, or to a set of
+  selected ones, or to none by default but you can then click the
+  extension icon to enable it on the currently loaded page.
+
+- As a bookmarklet:
+
+      javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/style.css'; document.head.appendChild(e); }
+
+  To install a bookmarklet, you copy the above text to the clipboard,
+  add a new bookmark, and paste it into the bookmark URL. After pasting,
+  check that it still starts with `javascript:`, and if not, add it back
+  by hand. Clicking the bookmark then will apply the font to the
+  currently loaded page - which is especially fun on satire sites like
+  the ones shown below.
 
 ## Gallery
 
