@@ -53,7 +53,10 @@ Each rule is processed as follows:
   - the chosen replacement,
   - the string that matched lookahead.
 """
-replacements = []
+replacements = [
+    # As an example, this is probably the simplest possible rule:
+    ("", "hunter2", "", ["*******"]),
+]
 
 
 def postprocess(font):
