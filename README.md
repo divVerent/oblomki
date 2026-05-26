@@ -37,6 +37,12 @@ means:
   selected ones, or to none by default but you can then click the
   extension icon to enable it on the currently loaded page.
 
+- As a Firefox extension:
+  <https://addons.mozilla.org/de/firefox/addon/%D0%BE%D0%B1%D0%BB%D0%BE%D0%BC%D0%BA%D0%B8/>
+
+  This can be set up to either apply to all websites, `.ru` domains
+  only, or to a set of selected ones.
+
 - As a bookmarklet:
 
       javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/style.css'; document.head.appendChild(e); }
