@@ -19,8 +19,8 @@ set -ex
 
 cd extension
 sed -e '
-	s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/\1") format("woff"), url("data/examples/\1") format("woff");!
-' < data/examples/style.css > style.css
+	s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/oblomki/\1") format("woff"), url("data/examples/\1") format("woff");!
+' < data/examples/oblomki/style.css > style.css
 zip -9r ../extension.zip \
 	manifest.json \
 	icon-16.png \
@@ -28,6 +28,6 @@ zip -9r ../extension.zip \
 	icon-96.png \
 	icon-128.png \
 	style.css \
-	data/examples/woff/*.woff \
-	data/examples/COPYING \
-	data/examples/CREDITS
+	data/examples/oblomki/woff/*.woff \
+	data/examples/oblomki/COPYING \
+	data/examples/oblomki/CREDITS
