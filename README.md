@@ -54,6 +54,16 @@ means:
   currently loaded page - which is especially fun on satire sites like
   the ones shown below.
 
+  Of this there are some other fun variants, namely:
+
+  - Autocorrect:
+
+        javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/autocorrect/style.css'; document.head.appendChild(e); }
+
+  - Word confusion:
+
+        javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/theire/style.css'; document.head.appendChild(e); }
+
 ## Gallery
 
 <a href="https://divverent.github.io/oblomki/screenshots/flibusta.png"><img src="https://divverent.github.io/oblomki/screenshots/flibusta.t.png" alt="flibusta" title="flibusta"></a>
