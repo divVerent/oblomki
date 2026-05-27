@@ -25,10 +25,21 @@ def cycle(*l):
 
 """List of replacement rules."""
 replacements = (
-    cycle("there", "their", "they're")
-    + cycle("a lot", "allot")
+    []
+    # The gimmick is that every word sequence here is correct per se.
+    # But mixing them up is wrong in context.
     + cycle("accept", "except")
+    + cycle("advice", "advise")
     + cycle("affect", "effect")
+    + cycle("could of", "could've")
+    + cycle("farther", "further")
+    + cycle("its", "it's")
+    + cycle("loose", "lose")
+    + cycle("principal", "principle")
+    + cycle("then", "than")
+    + cycle("there", "their", "they're")
+    + cycle("went", "gone")
+    + cycle("your", "you're")
 )
 
 

@@ -24,10 +24,10 @@ out=$(mktemp -d -t oblomki.XXXXXX)
 d0=$(pwd)
 for project in oblomki theire; do
 	cd "$d0/$project"
-	cat ../freefont/COPYING > "$out"/"$project"/COPYING
 	for dir in otf ttf woff; do
 		mkdir -p "$out"/"$project"/"$dir"
 	done
+	cat ../freefont/COPYING > "$out"/"$project"/COPYING
 	{
 		echo "This directory contains GNU FreeFont, edited using обломки's $project example."
 		echo
