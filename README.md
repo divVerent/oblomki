@@ -45,7 +45,7 @@ means:
 
 - As a bookmarklet:
 
-      javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/style.css'; document.head.appendChild(e); }
+      javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/oblomki/style.css'; document.head.appendChild(e); }
 
   To install a bookmarklet, you copy the above text to the clipboard,
   add a new bookmark, and paste it into the bookmark URL. After pasting,
