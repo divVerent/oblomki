@@ -5,3 +5,6 @@
 	path = examples/oblomki/extension/data
 	url = https://github.com/divVerent/oblomki
 	branch = gh-pages
+[submodule "examples/autocorrect/typos"]
+	path = examples/autocorrect/typos
+	url = https://github.com/crate-ci/typos

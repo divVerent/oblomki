@@ -8,7 +8,7 @@ See examples/config.py for a more elaborate example.
 
 def preprocess(font):
     """What to do with the font before processing, right after loading."""
-    pass
+    font.familyname += " with Theire"
 
 
 separators = set(""" !&*()-=+[{]}|;:'",<.>/?""")

@@ -22,7 +22,7 @@ git submodule update --init
 out=$(mktemp -d -t oblomki.XXXXXX)
 
 d0=$(pwd)
-for project in oblomki theire; do
+for project in autocorrect oblomki theire; do
 	cd "$d0/$project"
 	for dir in otf ttf woff; do
 		mkdir -p "$out"/"$project"/"$dir"
