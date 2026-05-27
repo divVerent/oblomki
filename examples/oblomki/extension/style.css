@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "FreeMono with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeMono.woff") format("woff"), url("data/examples/woff/FreeMono.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeMono with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeMonoBold.woff") format("woff"), url("data/examples/woff/FreeMonoBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeMono with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeMonoOblique.woff") format("woff"), url("data/examples/woff/FreeMonoOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeMono with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeMonoBoldOblique.woff") format("woff"), url("data/examples/woff/FreeMonoBoldOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSans with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSans.woff") format("woff"), url("data/examples/woff/FreeSans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSans with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSansBold.woff") format("woff"), url("data/examples/woff/FreeSansBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSans with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSansOblique.woff") format("woff"), url("data/examples/woff/FreeSansOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSans with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSansOblique.woff") format("woff"), url("data/examples/woff/FreeSansOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSerif with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSerif.woff") format("woff"), url("data/examples/woff/FreeSerif.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSerif with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSerifBold.woff") format("woff"), url("data/examples/woff/FreeSerifBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSerif with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSerifOblique.woff") format("woff"), url("data/examples/woff/FreeSerifOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSerif with Oblomki";
+  src: url("chrome-extension://__MSG_@@extension_id__/data/examples/woff/FreeSerifOblique.woff") format("woff"), url("data/examples/woff/FreeSerifOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+* {
+  font-family: "FreeSans with Oblomki" ! important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "FreeSerif with Oblomki" ! important;
+}
+pre, textarea {
+  font-family: "FreeMono with Oblomki" ! important;
+}

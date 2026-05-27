@@ -2,6 +2,6 @@
 	path = examples/freefont
 	url = https://github.com/Maxattax97/gnu-freefont
 [submodule "examples/extension/data"]
-	path = examples/extension/data
+	path = examples/oblomki/extension/data
 	url = https://github.com/divVerent/oblomki
 	branch = gh-pages

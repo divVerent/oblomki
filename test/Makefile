@@ -32,7 +32,7 @@ pre.ttf:
 	ln -snf ../examples/freefont/ttf/FreeSans.ttf pre.ttf
 
 post.ttf: pre.ttf
-	cd ../examples && ../oblomki.py config.py ../test/$< ../test/$@
+	cd ../examples/oblomki && ../../oblomki.py config.py ../../test/$< ../../test/$@
 
 corpus.f.borussia.txt:
 	echo ' BORUSSIA DORTMUND ' > $@

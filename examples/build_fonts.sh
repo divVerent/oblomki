@@ -21,20 +21,23 @@ git submodule update --init
 
 out=$(mktemp -d -t oblomki.XXXXXX)
 
-cat freefont/COPYING > "$out"/COPYING
-{
-	echo "This directory contains GNU FreeFont, edited using обломки."
-	echo
-	cat freefont/CREDITS
-} > "$out"/CREDITS
-
-for dir in otf ttf woff; do
-	mkdir "$out"/"$dir"
+d0=$(pwd)
+for project in oblomki theire; do
+	cd "$d0/$project"
+	cat ../freefont/COPYING > "$out"/COPYING
+	for dir in otf ttf woff; do
+		mkdir -p "$out"/"$project"/"$dir"
+	done
+	{
+		echo "This directory contains GNU FreeFont, edited using обломки's $project example."
+		echo
+		cat ../freefont/CREDITS
+	} > "$out"/"$project"/CREDITS
+	for font in ../freefont/otf/*.otf ../freefont/ttf/*.ttf ../freefont/woff/*.woff; do
+		python3 ../../oblomki.py config.py "$font" "$out"/"$project"/"${font#../freefont/}"
+	done
 done
-
-for font in freefont/otf/*.otf freefont/ttf/*.ttf freefont/woff/*.woff; do
-	python3 ../oblomki.py config.py "$font" "$out"/"${font#freefont/}"
-done
+cd "$d0"
 
 cat <<EOF
 Processed fonts are in $out/.

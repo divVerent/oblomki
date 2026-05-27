@@ -24,7 +24,7 @@ This example matches text of russian language and messes with it a little.
 
 import itertools
 
-from oblomki_found import OBLOMKI
+from found import OBLOMKI
 
 
 def import_svg(
@@ -77,6 +77,7 @@ def import_svg(
 
 def preprocess(font):
     """What to do with the font before processing, right after loading."""
+    font.familyname += " with Oblomki"
     import_svg(font, "oblomki_tryzub", "data/tryzub.svg", 1.0, 0.0, 1.0, 1.0)
     import_svg(font, "oblomki_fly1", "data/fly1.svg", 0.38, 0.61, 0.0, 0.0)
     import_svg(font, "oblomki_fly2", "data/fly2.svg", 0.41, 0.55, 0.0, 0.0)

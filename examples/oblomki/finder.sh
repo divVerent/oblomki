@@ -61,5 +61,5 @@ WORDLISTS_GOOD='
 {
 	echo "# This is a generated file. Do not edit. Run $0 to regenerate."
 	echo
-	./oblomki_finder.py 9 256 $WORDLISTS_BAD -- $WORDLISTS_GOOD
-} > oblomki_found.py
+	./finder.py 9 256 $WORDLISTS_BAD -- $WORDLISTS_GOOD
+} > found.py
