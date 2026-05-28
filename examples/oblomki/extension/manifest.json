@@ -8,12 +8,12 @@
     "96": "icon-96.png",
     "128": "icon-128.png"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "incognito": "spanning",
   "web_accessible_resources": [
     {
       "resources": [
-        "data/examples/woff/*.woff"
+        "data/examples/oblomki/woff/*.woff"
       ],
       "matches": [
         "<all_urls>"
