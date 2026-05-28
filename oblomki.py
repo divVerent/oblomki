@@ -211,6 +211,25 @@ def to_classes(groups):
     return list(map(sorted, classes)), list(map(str, indexes))
 
 
+class LigatureSet(object):
+    # TODO this can be made more efficient.
+    def __init__(self):
+        self.existing = set()
+
+    def can_add(new):
+        for e in self.existing:
+            if len(e) > len(new):
+                if e[: len(new)] == new:
+                    return False
+            else:
+                if new[: len(e)] == e:
+                    return False
+        return True
+
+    def add(new):
+        self.existing.add(new)
+
+
 def process_font(config, infile, outfile):
     font = fontforge.open(infile)
 
@@ -235,18 +254,40 @@ def process_font(config, infile, outfile):
     ]
     print(f"Scripts matched: {scripts}")
 
-    liga_seen = set()
+    liga_to_table = {}
+    liga_tables = {}
     calt = make_name("calt")
     if replacements:
         font.addLookup(calt, "gsub_contextchain", (), [("calt", scripts)])
     for backwards, match, forward, target in replacements:
         liga = make_name("liga", match, target)
         combined = make_name("glyph", target)
-        if liga not in liga_seen:
-            liga_seen.add(liga)
-            font.addLookup(liga, "gsub_ligature", (), [])
-            liga_subtable = make_name("liga", match, target, "sub")
-            font.addLookupSubtable(liga, liga_subtable)
+        if liga in liga_to_table:
+            liga_table = liga_to_table[liga]
+        else:
+            # We can optimize here.
+            # Two matches can be in the same ligature subtable if:
+            # - Either: match and target are common (here already done).
+            # - Or: the other subtable contains no match that's a substring _or_
+            #   a superstring of this one.
+            # Thus, best done by collecting previously added ligature tables,
+            # and updating the "liga" field if matching.
+            for name, ligatures in liga_tables:
+                if ligatures.can_add(match):
+                    liga_table = name
+                    liga_subtable = (
+                        liga_table + "_sub"
+                    )  # Exceeds length, but who cares.
+                    break
+            else:
+                liga_table = liga
+                liga_tables[liga_table] = LigatureSet()
+                font.addLookup(liga, "gsub_ligature", (), [])
+                liga_subtable = liga_table + "_sub"  # Exceeds length, but who cares.
+                font.addLookupSubtable(liga, liga_subtable)
+            liga_to_table[liga] = liga_table
+            liga_tables[liga_table].add(match)
+
             if len(target) == 1:
                 glyph = font[target[0]]
             elif combined in font:
@@ -267,7 +308,7 @@ def process_font(config, infile, outfile):
         mclasses, mindexes = to_classes(match)
         fclasses, findexes = to_classes(forward)
         brule = " ".join(bindexes)
-        mrule = " ".join([mindexes[0], f"@<{liga}>"] + mindexes[1:])
+        mrule = " ".join([mindexes[0], f"@<{liga_table}>"] + mindexes[1:])
         frule = " ".join(findexes)
         rule = " | ".join([brule, mrule, frule])
         calt_subtable = make_name("calt", backwards, match, forward)
