@@ -267,6 +267,8 @@ def process_font(config, infile, outfile):
     calt = make_name("calt")
     if replacements:
         font.addLookup(calt, "gsub_contextchain", (), [("calt", scripts)])
+    num_glyphs = 0
+    num_possub = 0
     for backwards, match, forward, target in replacements:
         liga = make_name("liga", match, target)
         combined = make_name("glyph", target)
@@ -310,8 +312,10 @@ def process_font(config, infile, outfile):
                 glyph.removeOverlap()
                 glyph.autoHint()
                 glyph.autoInstr()
+                num_glyphs += 1
             for single_match in itertools.product(*match):
                 glyph.addPosSub(liga_subtable, single_match)
+                num_possub += 1
         bclasses, bindexes = to_classes(backwards)
         mclasses, mindexes = to_classes(match)
         fclasses, findexes = to_classes(forward)
@@ -330,7 +334,7 @@ def process_font(config, infile, outfile):
             fclasses=fclasses,
         )
     print(
-        f"Added {len(liga_tables)} ligature tables for {len(replacements)} replacements."
+        f"Added {len(liga_tables)} ligature tables, {num_glyphs} glyphs and {num_possub} substitutions for {len(replacements)} replacement rules."
     )
 
     postprocessed = None
