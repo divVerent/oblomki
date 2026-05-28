@@ -253,7 +253,7 @@ def process_font(config, infile, outfile):
             for glyph in set().union(*backwards, *match, *forward)
         )
     )
-    print(f"Glyphs matched: {all_glyphs}")
+    print(f"Glyphs matched: {sorted(all_glyphs)}")
     scripts = [
         (script, ["dflt"])
         for script in sorted(
