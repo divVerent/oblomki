@@ -35,7 +35,8 @@ def replacements_from(filename):
                 ret.append(([], match, [separators], [replace]))
     # Keep only some rules. Fonts can't handle much more.
     # Otherwise: Internal Error: Attempt to output 65536 into a 16-bit field. It will be truncated and the file may not be useful.
-    n = 5000
+    n = 6000
+    print(f"Exporting {n} out of {len(ret)} replacements.")
 
     def complexity(rule):
         lookbehind, match, lookahead, replace = rule
