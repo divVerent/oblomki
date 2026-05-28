@@ -212,22 +212,30 @@ def to_classes(groups):
 
 
 class LigatureSet(object):
-    # TODO this can be made more efficient.
     def __init__(self):
-        self.existing = set()
+        self.existing_full = set()
+        self.existing_prefixes = set()
 
-    def can_add(new):
-        for e in self.existing:
-            if len(e) > len(new):
-                if e[: len(new)] == new:
-                    return False
-            else:
-                if new[: len(e)] == e:
-                    return False
+    def to_key(s):
+        return make_name("", s)
+
+    def can_add(self, new):
+        # Is new a prefix of something already added?
+        if LigatureSet.to_key(new) in self.existing_prefixes:
+            return False
+
+        # Has a prefix of new already been added?
+        for i in range(0, len(new) + 1):
+            if LigatureSet.to_key(new[:i]) in self.existing_full:
+                return False
+
+        # Otherwise go ahead.
         return True
 
-    def add(new):
-        self.existing.add(new)
+    def add(self, new):
+        for i in range(1, len(new) + 1):
+            self.existing_prefixes.add(LigatureSet.to_key(new[:i]))
+        self.existing_full.add(LigatureSet.to_key(new))
 
 
 def process_font(config, infile, outfile):
@@ -272,7 +280,7 @@ def process_font(config, infile, outfile):
             #   a superstring of this one.
             # Thus, best done by collecting previously added ligature tables,
             # and updating the "liga" field if matching.
-            for name, ligatures in liga_tables:
+            for name, ligatures in liga_tables.items():
                 if ligatures.can_add(match):
                     liga_table = name
                     liga_subtable = (
@@ -321,6 +329,9 @@ def process_font(config, infile, outfile):
             mclasses=mclasses,
             fclasses=fclasses,
         )
+    print(
+        f"Added {len(liga_tables)} ligature tables for {len(replacements)} replacements."
+    )
 
     postprocessed = None
     if "postprocess" in config:
