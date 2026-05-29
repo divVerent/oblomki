@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import collections
 import fontforge
 import os
 import sys
@@ -132,8 +133,17 @@ def replacement_to_glyphs(font, replacement):
     return backwards, match, forward, target
 
 
+def uniq(l):
+    seen = []
+    for x in l:
+        if x in seen:
+            continue
+        seen.append(x)
+    return seen
+
+
 def replacements_to_glyphs(font, replacements):
-    return list(
+    return uniq(
         filter(
             None,
             (replacement_to_glyphs(font, replacement) for replacement in replacements),
@@ -263,7 +273,7 @@ def process_font(config, infile, outfile):
     print(f"Scripts matched: {scripts}")
 
     liga_to_table = {}
-    liga_tables = {}
+    liga_tables = collections.OrderedDict()
     calt = make_name("calt")
     if replacements:
         font.addLookup(calt, "gsub_contextchain", (), [("calt", scripts)])
