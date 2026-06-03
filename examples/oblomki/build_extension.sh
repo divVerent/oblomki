@@ -18,9 +18,12 @@
 set -ex
 
 cd extension
-sed -e '
-	s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/oblomki/\1") format("woff"), url("data/examples/oblomki/\1") format("woff");!
-' < data/examples/oblomki/style.css > style.css
+{
+	cat data/examples/oblomki/makedefault.css
+	sed -e '
+		s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/oblomki/\1") format("woff"), url("data/examples/oblomki/\1") format("woff");!
+	' < data/examples/oblomki/font.css
+} > style.css
 zip -9r ../extension.zip \
 	manifest.json \
 	icon-16.png \
