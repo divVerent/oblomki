@@ -45,7 +45,7 @@ means:
 
 - As a bookmarklet:
 
-      javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/oblomki/style.css'; document.head.appendChild(e); }
+      javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divVerent.github.io/oblomki/examples/oblomki/style.css'; document.head.appendChild(e); }
 
   To install a bookmarklet, you copy the above text to the clipboard,
   add a new bookmark, and paste it into the bookmark URL. After pasting,
@@ -58,18 +58,22 @@ means:
 
   - Autocorrect:
 
-        javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/autocorrect/style.css'; document.head.appendChild(e); }
+        javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divVerent.github.io/oblomki/examples/autocorrect/style.css'; document.head.appendChild(e); }
 
   - Word confusion:
 
-        javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divverent.github.io/oblomki/examples/theire/style.css'; document.head.appendChild(e); }
+        javascript:{ let e = document.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = 'https://divVerent.github.io/oblomki/examples/theire/style.css'; document.head.appendChild(e); }
+
+- On a test page:
+
+  Just visit <https://divVerent.github.io/oblomki/examples/> for a demo.
 
 ## Gallery
 
-<a href="https://divverent.github.io/oblomki/screenshots/flibusta.png"><img src="https://divverent.github.io/oblomki/screenshots/flibusta.t.png" alt="flibusta" title="flibusta"></a>
-<a href="https://divverent.github.io/oblomki/screenshots/kremlin.png"><img src="https://divverent.github.io/oblomki/screenshots/kremlin.t.png" alt="kremlin" title="kremlin"></a>
-<a href="https://divverent.github.io/oblomki/screenshots/ria.png"><img src="https://divverent.github.io/oblomki/screenshots/ria.t.png" alt="ria novosti" title="ria novosti"></a>
-<a href="https://divverent.github.io/oblomki/screenshots/rt.png"><img src="https://divverent.github.io/oblomki/screenshots/rt.t.png" alt="russia today" title="russia today"></a>
+<a href="https://divVerent.github.io/oblomki/screenshots/flibusta.png"><img src="https://divVerent.github.io/oblomki/screenshots/flibusta.t.png" alt="flibusta" title="flibusta"></a>
+<a href="https://divVerent.github.io/oblomki/screenshots/kremlin.png"><img src="https://divVerent.github.io/oblomki/screenshots/kremlin.t.png" alt="kremlin" title="kremlin"></a>
+<a href="https://divVerent.github.io/oblomki/screenshots/ria.png"><img src="https://divVerent.github.io/oblomki/screenshots/ria.t.png" alt="ria novosti" title="ria novosti"></a>
+<a href="https://divVerent.github.io/oblomki/screenshots/rt.png"><img src="https://divVerent.github.io/oblomki/screenshots/rt.t.png" alt="russia today" title="russia today"></a>
 
 ## Why the name?
 
