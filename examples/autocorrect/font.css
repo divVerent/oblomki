@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "FreeMono with Autocorrect";
+  src: url("woff/FreeMono.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeMono with Autocorrect";
+  src: url("woff/FreeMonoBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeMono with Autocorrect";
+  src: url("woff/FreeMonoOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeMono with Autocorrect";
+  src: url("woff/FreeMonoBoldOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSans with Autocorrect";
+  src: url("woff/FreeSans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSans with Autocorrect";
+  src: url("woff/FreeSansBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSans with Autocorrect";
+  src: url("woff/FreeSansOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSans with Autocorrect";
+  src: url("woff/FreeSansOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSerif with Autocorrect";
+  src: url("woff/FreeSerif.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSerif with Autocorrect";
+  src: url("woff/FreeSerifBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FreeSerif with Autocorrect";
+  src: url("woff/FreeSerifOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "FreeSerif with Autocorrect";
+  src: url("woff/FreeSerifOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}

@@ -1,0 +1,9 @@
+* {
+  font-family: "FreeSans with Oblomki" ! important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "FreeSerif with Oblomki" ! important;
+}
+pre, textarea {
+  font-family: "FreeMono with Oblomki" ! important;
+}
