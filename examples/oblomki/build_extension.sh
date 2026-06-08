@@ -19,7 +19,7 @@ set -ex
 
 cd extension
 {
-	cat data/examples/oblomki/makedefault.css
+	cat data/examples/oblomki/setdefault.css
 	sed -e '
 		s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/oblomki/\1") format("woff"), url("data/examples/oblomki/\1") format("woff");!
 	' < data/examples/oblomki/font.css
