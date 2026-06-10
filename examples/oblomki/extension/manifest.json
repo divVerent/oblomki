@@ -8,7 +8,7 @@
     "96": "icon-96.png",
     "128": "icon-128.png"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "incognito": "spanning",
   "web_accessible_resources": [
     {
@@ -26,6 +26,12 @@
         "*://*.ru/*",
         "<all_urls>"
       ],
+      "exclude_matches": [
+        "https://divVerent.github.io/oblomki/*"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true,
       "css": [
         "style.css"
       ],
