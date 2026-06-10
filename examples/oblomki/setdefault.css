@@ -29,25 +29,3 @@
 :root input:not([type]) * {
   font-family: "FreeMono with Oblomki" ! important;
 }
-:root [class^="fa-"],
-:root [class^="fa-"] *,
-:root [class*=" fa-"],
-:root [class*=" fa-"] *,
-:root [class^="glyphicon-"],
-:root [class^="glyphicon-"] *,
-:root [class*=" glyphicon-"],
-:root [class*=" glyphicon-"] *,
-:root .icon,
-:root .icon *,
-:root [class^="icon-"],
-:root [class^="icon-"] *,
-:root [class*=" icon-"],
-:root [class*=" icon-"] *,
-:root mat-icon,
-:root mat-icon *,
-:root [data-mat-icon-type="font"],
-:root [data-mat-icon-type="font"] *,
-:root .mat-ligature-font,
-:root .mat-ligature-font * {
-  font-family: inherit ! important;
-}

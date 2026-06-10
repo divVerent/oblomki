@@ -1,7 +1,7 @@
 :root,
 :root *,
 :root body {
-  font-family: "FreeSans with Autocorrect" ! important;
+  font-family: "FreeSans" ! important;
 }
 :root h1,
 :root h1 *,
@@ -15,7 +15,7 @@
 :root h5 *,
 :root h6,
 :root h6 * {
-  font-family: "FreeSerif with Autocorrect" ! important;
+  font-family: "FreeSerif" ! important;
 }
 :root pre,
 :root pre *,
@@ -27,27 +27,5 @@
 :root input[type="text"] *,
 :root input:not([type]),
 :root input:not([type]) * {
-  font-family: "FreeMono with Autocorrect" ! important;
-}
-:root [class^="fa-"],
-:root [class^="fa-"] *,
-:root [class*=" fa-"],
-:root [class*=" fa-"] *,
-:root [class^="glyphicon-"],
-:root [class^="glyphicon-"] *,
-:root [class*=" glyphicon-"],
-:root [class*=" glyphicon-"] *,
-:root .icon,
-:root .icon *,
-:root [class^="icon-"],
-:root [class^="icon-"] *,
-:root [class*=" icon-"],
-:root [class*=" icon-"] *,
-:root mat-icon,
-:root mat-icon *,
-:root [data-mat-icon-type="font"],
-:root [data-mat-icon-type="font"] *,
-:root .mat-ligature-font,
-:root .mat-ligature-font * {
-  font-family: inherit ! important;
+  font-family: "FreeMono" ! important;
 }
