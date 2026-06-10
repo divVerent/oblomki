@@ -1,9 +1,53 @@
-* {
+:root,
+:root *,
+:root body {
   font-family: "FreeSans with Autocorrect" ! important;
 }
-h1, h1 *, h2, h2 *, h3, h3 *, h4, h4 *, h5, h5 *, h6, h6 * {
+:root h1,
+:root h1 *,
+:root h2,
+:root h2 *,
+:root h3,
+:root h3 *,
+:root h4,
+:root h4 *,
+:root h5,
+:root h5 *,
+:root h6,
+:root h6 * {
   font-family: "FreeSerif with Autocorrect" ! important;
 }
-pre, pre *, textarea, textarea * {
+:root pre,
+:root pre *,
+:root textarea,
+:root textarea *,
+:root code,
+:root code *,
+:root input[type="text"],
+:root input[type="text"] *,
+:root input:not([type]),
+:root input:not([type]) * {
   font-family: "FreeMono with Autocorrect" ! important;
+}
+:root [class^="fa-"],
+:root [class^="fa-"] *,
+:root [class*=" fa-"],
+:root [class*=" fa-"] *,
+:root [class^="glyphicon-"],
+:root [class^="glyphicon-"] *,
+:root [class*=" glyphicon-"],
+:root [class*=" glyphicon-"] *,
+:root .icon,
+:root .icon *,
+:root [class^="icon-"],
+:root [class^="icon-"] *,
+:root [class*=" icon-"],
+:root [class*=" icon-"] *,
+:root mat-icon,
+:root mat-icon *,
+:root [data-mat-icon-type="font"],
+:root [data-mat-icon-type="font"] *,
+:root .mat-ligature-font,
+:root .mat-ligature-font * {
+  font-family: inherit ! important;
 }
