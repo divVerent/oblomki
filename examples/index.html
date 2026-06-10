@@ -11,19 +11,38 @@
     width: 100%;
     height: 48pt;
     font-size: 12pt;
-
   }
   </style>
+  <script type="text/javascript">
+    function linkify() {
+      for (const span of document.getElementsByClassName('copythis')) {
+        const text = span.textContent;
+        const p = span.parentNode;
+        const textarea = p.nextSibling.nextSibling;
+        const a = document.createElement('a');
+        p.replaceChild(a, span);
+        a.appendChild(span);
+        a.href = '#';
+        a.addEventListener('click', function(e) {
+          textarea.value = span.textContent;
+          e.preventDefault();
+        });
+      }
+    }
+  </script>
 </head>
-<body>
+<body onload="linkify()">
   <h1>обломки</h1>
   <p><a href="https://github.com/divVerent/oblomki/">Tool to edit font files to replace given word <em>fragments</em> by defined replacements.</a></p>
   <p>Play with these text boxes! Such as try changing the text, or deleting and retyping it to see what happens!</p>
   <h2>Example: <a href="https://github.com/divVerent/oblomki/tree/gh-pages/examples/autocorrect">Autocorrect font</a></h2>
-  <textarea name="autocorrect" style="font-family: 'FreeSans with Autocorrect'">All teh mistakes are intended.</textarea>
+  <p>Try typing "<span class="copythis">All teh mistakes are intended.</span>" into it!</p>
+  <textarea name="autocorrect" style="font-family: 'FreeSans with Autocorrect'"></textarea>
   <h2>Example: <a href="https://github.com/divVerent/oblomki/tree/gh-pages/examples/oblomki">Oblomki font</a></h2>
-  <textarea name="oblomki" style="font-family: 'FreeSans with Oblomki'">End the war of Russia against the Ukraine.</textarea>
+  <p>Try typing "<span class="copythis">End the war of Russia against the ukraine.</span>" into it!</p>
+  <textarea name="oblomki" style="font-family: 'FreeSans with Oblomki'"></textarea>
   <h2>Example: <a href="https://github.com/divVerent/oblomki/tree/gh-pages/examples/theire">Theire font</a></h2>
-  <textarea name="theire" style="font-family: 'FreeSans with Theire'">You're right: I could of course see your point right there that they could've been taught better: they're messing up their grammar.</textarea>
+  <p>Try typing "<span class="copythis">You're right: I could of course see your point right there that they could've been taught better: they're messing up their grammar.</span>" into it!</p>
+  <textarea name="theire" style="font-family: 'FreeSans with Theire'"></textarea>
 </body>
 </html>
