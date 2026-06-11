@@ -47,7 +47,7 @@
     font-family: "FreeSerif with Theire" ! important;
   }
   /* Use mono for code and text input. */
-  &:is(pre, textarea, code, input[type="text", input:not([type])) {
+  &:is(pre, textarea, code, input[type="text"], input:not([type])) {
     font-family: "FreeMono with Theire" ! important;
   }
 }
