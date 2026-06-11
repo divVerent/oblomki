@@ -1,31 +1,53 @@
-:root,
-:root *,
-:root body {
-  font-family: "FreeSans" ! important;
-}
-:root h1,
-:root h1 *,
-:root h2,
-:root h2 *,
-:root h3,
-:root h3 *,
-:root h4,
-:root h4 *,
-:root h5,
-:root h5 *,
-:root h6,
-:root h6 * {
-  font-family: "FreeSerif" ! important;
-}
-:root pre,
-:root pre *,
-:root textarea,
-:root textarea *,
-:root code,
-:root code *,
-:root input[type="text"],
-:root input[type="text"] *,
-:root input:not([type]),
-:root input:not([type]) * {
-  font-family: "FreeMono" ! important;
+*:not(
+  /* Generic */
+  .icon, .icon *,
+  [class^="icon-"], [class^="icon-"] *, [class*=" icon-"], [class*=" icon-"] *,
+  /* Bootstrap */
+  .bi, .bi *,
+  [class^="bi-"], [class^="bi-"] *, [class*=" bi-"], [class*=" bi-"] *,
+  /* Font Awesome */
+  [class^="fa-"], [class^="fa-"] *, [class*=" fa-"], [class*=" fa-"] *,
+  .fa, .fa *,
+  .fab, .fab *,
+  .fad, .fad *,
+  .fal, .fal *,
+  .far, .far *,
+  .fas, .fas *,
+  /* Foundation */
+  [class^="fi-"], [class^="fi-"] *, [class*=" fi-"], [class*=" fi-"] *,
+  /* Glyphicon */
+  .glyphicon, .glyphicon *,
+  [class^="glyphicon-"], [class^="glyphicon-"] *, [class*=" glyphicon-"], [class*=" glyphicon-"] *,
+  /* Open Iconic */
+  .oi, .oi *,
+  [class^="oi-"], [class^="oi-"] *, [class*=" oi-"], [class*=" oi-"] *,
+  /* LineIcons */
+  .lni, .lni *,
+  [class^="lni-"], [class^="lni-"] *, [class*=" lni-"], [class*=" lni-"] *,
+  /* Material Design */
+  .mat-icon, .mat-icon *,
+  .material-icons, .material-icons *,
+  [class^="material-icons-"], [class^="material-icons-"] *, [class*=" material-icons-"], [class*=" material-icons-"] *,
+  [class^="material-symbols-"], [class^="material-symbols-"] *, [class*=" material-symbols-"], [class*=" material-symbols-"] *,
+  /* Remix Icon */
+  .ri, .ri *,
+  [class^="ri-"], [class^="ri-"] *, [class*=" ri-"], [class*=" ri-"] *,
+  /* Tabler */
+  [class^="ti-"], [class^="ti-"] *, [class*=" ti-"], [class*=" ti-"] *,
+  .ti, .ti *
+) {
+  /* By default everything inherits. */
+  font-family: inherit ! important;
+  /* Apply main font at document root. */
+  &:is(:root, html, body, #app) {
+    font-family: "FreeSans" ! important;
+  }
+  /* Use serif for headlines. */
+  &:is(h1, h2, h3, h4, h5, h6) {
+    font-family: "FreeSans" ! important;
+  }
+  /* Use mono for code and text input. */
+  &:is(pre, textarea, code, input[type="text", input:not([type])) {
+    font-family: "FreeMono" ! important;
+  }
 }
