@@ -17,16 +17,17 @@
 
 set -ex
 
-cd extension
 git checkout gh-pages
+git pull
 git checkout master
+cd extension
 rm -rf data
-git archive --format=tar --prefix=data/ gh-pages ../../.. | tar xvf -
+git -C .. archive --format=tar --prefix=data/ gh-pages | tar xvf -
 {
-	cat data/examples/oblomki/setdefault.css
+	cat data/setdefault.css
 	sed -e '
-		s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/examples/oblomki/\1") format("woff"), url("data/examples/oblomki/\1") format("woff");!
-	' < data/examples/oblomki/font.css
+		s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/\1") format("woff"), url("data/\1") format("woff");!
+	' < data/font.css
 } > style.css
 zip -9r ../extension.zip \
 	manifest.json \
@@ -35,6 +36,6 @@ zip -9r ../extension.zip \
 	icon-96.png \
 	icon-128.png \
 	style.css \
-	data/examples/oblomki/woff/*.woff \
-	data/examples/oblomki/COPYING \
-	data/examples/oblomki/CREDITS
+	data/woff/*.woff \
+	data/COPYING \
+	data/CREDITS

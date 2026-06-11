@@ -47,8 +47,4 @@ git checkout gh-pages
 rsync -vaSHPAX $out/. .
 git commit -a
 git push
-git checkout master
-git submodule update --remote
-git commit -a
-git push
 EOF
