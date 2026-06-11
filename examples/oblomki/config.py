@@ -210,6 +210,10 @@ replacements = list(
         prefix("Ровн", "Рівн"),
         prefix("Rovno", "Rivne"),
         prefix("Rowno", "Riwne"),
+        #
+        prefix("Запорожь", "Запоріжж"),
+        prefix("Zaporozhye", "Zaporizhzhia"),
+        prefix("Saporoschje", "Saporischschja"),
     )
 )
 
