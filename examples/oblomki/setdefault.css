@@ -29,6 +29,9 @@
   .material-icons, .material-icons *,
   [class^="material-icons-"], [class^="material-icons-"] *, [class*=" material-icons-"], [class*=" material-icons-"] *,
   [class^="material-symbols-"], [class^="material-symbols-"] *, [class*=" material-symbols-"], [class*=" material-symbols-"] *,
+  .google-material-icons, .google-material-icons *,
+  [class^="google-material-icons-"], [class^="google-material-icons-"] *, [class*=" google-material-icons-"], [class*=" google-material-icons-"] *,
+  [class^="google-material-symbols-"], [class^="google-material-symbols-"] *, [class*=" google-material-symbols-"], [class*=" google-material-symbols-"] *,
   /* Remix Icon */
   .ri, .ri *,
   [class^="ri-"], [class^="ri-"] *, [class*=" ri-"], [class*=" ri-"] *,
