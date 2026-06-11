@@ -18,6 +18,10 @@
 set -ex
 
 cd extension
+git checkout gh-pages
+git checkout master
+rm -rf data
+git archive --format=tar --prefix=data/ ../../.. | tar xvf -
 {
 	cat data/examples/oblomki/setdefault.css
 	sed -e '

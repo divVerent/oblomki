@@ -1,10 +1,8 @@
 [submodule "examples/freefont"]
 	path = examples/freefont
 	url = https://github.com/Maxattax97/gnu-freefont
-[submodule "examples/extension/data"]
-	path = examples/oblomki/extension/data
-	url = https://github.com/divVerent/oblomki
-	branch = gh-pages
+	shallow = true
 [submodule "examples/autocorrect/typos"]
 	path = examples/autocorrect/typos
 	url = https://github.com/crate-ci/typos
+	shallow = true
