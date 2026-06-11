@@ -1,7 +1,4 @@
 *:not(
-  /* Generic */
-  .icon, .icon *,
-  [class^="icon-"], [class^="icon-"] *, [class*=" icon-"], [class*=" icon-"] *,
   /* Bootstrap */
   .bi, .bi *,
   [class^="bi-"], [class^="bi-"] *, [class*=" bi-"], [class*=" bi-"] *,
@@ -37,7 +34,14 @@
   [class^="ri-"], [class^="ri-"] *, [class*=" ri-"], [class*=" ri-"] *,
   /* Tabler */
   [class^="ti-"], [class^="ti-"] *, [class*=" ti-"], [class*=" ti-"] *,
-  .ti, .ti *
+  .ti, .ti *,
+  /* Vanilla */
+  [class^="p-icon-"], [class^="p-icon-"] *, [class*=" p-icon-"], [class*=" p-icon-"] *,
+  /* otto.de */
+  .p_icons, .p_icons *,
+  /* Generic */
+  .icon, .icon *,
+  [class^="icon-"], [class^="icon-"] *, [class*=" icon-"], [class*=" icon-"] *
 ) {
   /* By default everything inherits. */
   font-family: inherit ! important;
