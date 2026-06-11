@@ -13,7 +13,7 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "data/examples/oblomki/woff/*.woff"
+        "data/woff/*.woff"
       ],
       "matches": [
         "<all_urls>"
