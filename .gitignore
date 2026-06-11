@@ -1,5 +1,6 @@
 *.pyc
 /examples/oblomki/extension.zip
+/examples/oblomki/extension/data
 /examples/oblomki/extension/style.css
 /test/*.dwdiff
 /test/*.post
