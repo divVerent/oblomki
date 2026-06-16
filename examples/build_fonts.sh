@@ -36,16 +36,18 @@ for project in autocorrect oblomki theire; do
 	suffix=
 	for font in ../freefont/otf/*.otf ../freefont/ttf/*.ttf ../freefont/woff/*.woff; do
 		outfont="$out"/"$project"/"${font#../freefont/}"
-		srcfamily=$(fc-query -f '%{family[0]}\n' "$font")
+		srcfamily=$(fc-query -f '%{family[0]}\n' "$font" || true)
 		python3 ../../oblomki.py config.py "$font" "$outfont"
-		dstfamily=$(fc-query -f '%{family[0]}\n' "$outfont")
-		echo "$srcfamily -> $dstfamily"
-		dstsuffix=${dstfamily#$srcfamily}
-		[ -n "$dstsuffix" ]
-		if [ -n "$suffix" ]; then
-			[ x"$suffix" = x"$dstsuffix" ]
-		else
-			suffix=$dstsuffix
+		if [ -n "$srcfamily" ]; then
+			dstfamily=$(fc-query -f '%{family[0]}\n' "$outfont")
+			echo "$srcfamily -> $dstfamily"
+			dstsuffix=${dstfamily#$srcfamily}
+			[ -n "$dstsuffix" ]
+			if [ -n "$suffix" ]; then
+				[ x"$suffix" = x"$dstsuffix" ]
+			else
+				suffix=$dstsuffix
+			fi
 		fi
 	done
 	[ -n "$suffix" ]
