@@ -158,6 +158,7 @@ to setdefault.css <<EOF
   [class^="material-icons-"], [class^="material-icons-"] *, [class*=" material-icons-"], [class*=" material-icons-"] *,
   [class^="material-symbols-"], [class^="material-symbols-"] *, [class*=" material-symbols-"], [class*=" material-symbols-"] *,
   .google-material-icons, .google-material-icons *,
+  .google-symbols, .google-symbols *,
   [class^="google-material-icons-"], [class^="google-material-icons-"] *, [class*=" google-material-icons-"], [class*=" google-material-icons-"] *,
   [class^="google-material-symbols-"], [class^="google-material-symbols-"] *, [class*=" google-material-symbols-"], [class*=" google-material-symbols-"] *,
   /* Remix Icon */
