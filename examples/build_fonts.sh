@@ -54,7 +54,6 @@ for project in autocorrect oblomki theire; do
 	../build_css.sh web "$out"/"$project" "$suffix"
 done
 cd "$d0"
-exit
 
 cat <<EOF
 Processed fonts are in $out/.
