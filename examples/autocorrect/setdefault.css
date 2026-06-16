@@ -47,14 +47,14 @@
   font-family: inherit ! important;
   /* Apply main font at document root. */
   &:is(:root, html, body, #app) {
-    font-family: "FreeSans" ! important;
+    font-family: "FreeSans with Autocorrect" ! important;
   }
   /* Use serif for headlines. */
   &:is(h1, h2, h3, h4, h5, h6) {
-    font-family: "FreeSans" ! important;
+    font-family: "FreeSerif with Autocorrect" ! important;
   }
   /* Use mono for code and text input. */
   &:is(pre, textarea, code, input[type="text"], input:not([type])) {
-    font-family: "FreeMono" ! important;
+    font-family: "FreeMono with Autocorrect" ! important;
   }
 }
