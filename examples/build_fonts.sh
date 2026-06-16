@@ -33,11 +33,26 @@ for project in autocorrect oblomki theire; do
 		echo
 		cat ../freefont/CREDITS
 	} > "$out"/"$project"/CREDITS
+	suffix=
 	for font in ../freefont/otf/*.otf ../freefont/ttf/*.ttf ../freefont/woff/*.woff; do
-		python3 ../../oblomki.py config.py "$font" "$out"/"$project"/"${font#../freefont/}"
+		outfont="$out"/"$project"/"${font#../freefont/}"
+		srcfamily=$(fc-query -f '%{family[0]}\n' "$font")
+		python3 ../../oblomki.py config.py "$font" "$outfont"
+		dstfamily=$(fc-query -f '%{family[0]}\n' "$outfont")
+		echo "$srcfamily -> $dstfamily"
+		dstsuffix=${dstfamily#$srcfamily}
+		[ -n "$dstsuffix" ]
+		if [ -n "$suffix" ]; then
+			[ x"$suffix" = x"$dstsuffix" ]
+		else
+			suffix=$dstsuffix
+		fi
 	done
+	[ -n "$suffix" ]
+	../build_css.sh web "$out"/"$project" "$suffix"
 done
 cd "$d0"
+exit
 
 cat <<EOF
 Processed fonts are in $out/.

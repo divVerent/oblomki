@@ -23,12 +23,7 @@ git checkout master
 cd extension
 rm -rf data
 git -C .. archive --format=tar --prefix=data/ gh-pages | tar xvf -
-{
-	cat data/setdefault.css
-	sed -e '
-		s!: url("\([^"]*\)") format("woff");!: url("chrome-extension://__MSG_@@extension_id__/data/\1") format("woff"), url("data/\1") format("woff");!
-	' < data/font.css
-} > style.css
+../../build_css.sh extension style.css ' with Oblomki'
 zip -9r ../extension.zip \
 	manifest.json \
 	icon-16.png \
