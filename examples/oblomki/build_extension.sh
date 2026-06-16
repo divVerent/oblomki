@@ -23,7 +23,7 @@ git checkout master
 cd extension
 rm -rf data
 git -C .. archive --format=tar --prefix=data/ gh-pages | tar xvf -
-../../build_css.sh extension style.css ' with Oblomki'
+../../build_css.sh extension . ' with Oblomki'
 zip -9r ../extension.zip \
 	manifest.json \
 	icon-16.png \
