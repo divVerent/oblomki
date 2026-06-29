@@ -26,6 +26,8 @@ CORPORA_TEST = $(patsubst %,corpus.%.test,$(CORPORA))
 # Never auto delete files.
 .SECONDARY:
 
+PREVIEW = sh -c 'wc $$1 && sha256sum $$1 && head $$1' --
+
 all: test
 
 pre.ttf:
@@ -42,8 +44,7 @@ corpus.f.donetskr.txt:
 
 corpus.f.john.txt:
 	set -e; for i in $$(seq 1 21); do w3m -dump https://biblera.com/uk/ukrainian/john/$$i; done > $@
-	wc $@
-	sha256sum $@
+	$(PREVIEW) $@
 
 corpus.t.donetsk.txt:
 	echo ' Донецк ' > $@
@@ -53,21 +54,18 @@ corpus.t.donetska.txt:
 
 corpus.t.kremlinru.txt:
 	w3m -dump http://kremlin.ru/ > $@
-	wc $@
-	sha256sum $@
+	$(PREVIEW) $@
 
 corpus.t.john.txt:
 	set -e; for i in $$(seq 1 21); do w3m -dump https://biblera.com/ru/russian-synodal/john/$$i; done > $@
-	wc $@
-	sha256sum $@
+	$(PREVIEW) $@
 
 corpus.t.odessa.txt:
 	echo ' Odessa ' > $@
 
 corpus.t.riaru.txt:
 	w3m -dump https://ria.ru/ > $@
-	wc $@
-	sha256sum $@
+	$(PREVIEW) $@
 
 corpus.t.terror.txt:
 	echo ' RUSSIA IS A TERRORIST STATE ' > $@
