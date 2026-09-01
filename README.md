@@ -38,7 +38,8 @@ means:
   extension icon to enable it on the currently loaded page.
 
 - As a Firefox extension:
-  <https://addons.mozilla.org/de/firefox/addon/%D0%BE%D0%B1%D0%BB%D0%BE%D0%BC%D0%BA%D0%B8/>
+
+  <!-- <https://addons.mozilla.org/de/firefox/addon/%D0%BE%D0%B1%D0%BB%D0%BE%D0%BC%D0%BA%D0%B8/> -->
 
   This can be set up to either apply to all websites, `.ru` domains
   only, or (on desktop Firefox only) to a set of selected ones.
