@@ -1,7 +1,12 @@
 {
   "addons": {
     "{beb694d4-21ef-411a-8fbf-c191923c8145}": {
-      "updates": []
+      "updates": [
+        {
+          "version": "0.1.4",
+          "update_link": "https://github.com/divVerent/oblomki/releases/download/v0.1.4/oblomki-v0.1.4.xpi"
+        }
+      ]
     }
   }
 }
