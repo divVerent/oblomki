@@ -34,3 +34,15 @@ zip -9r ../extension.zip \
 	data/woff/*.woff \
 	data/COPYING \
 	data/CREDITS
+sed -i 's,beb694d4-21ef-411a-8fbf-c191923c8145,820f63ce-2491-4c22-81bb-abfd1077f1c4,g' manifest.json
+zip -9r ../extension-xpi.zip \
+	manifest.json \
+	icon-16.png \
+	icon-48.png \
+	icon-96.png \
+	icon-128.png \
+	style.css \
+	data/woff/*.woff \
+	data/COPYING \
+	data/CREDITS
+git checkout manifest.json
